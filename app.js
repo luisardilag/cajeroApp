@@ -112,7 +112,7 @@ function cambioClave() {
 
 // SALIR
 function salir() {
-    return console.log('Gracias por usar Bancajeros');
+    console.log('Gracias por usar Bancajeros');
 }
 
 
