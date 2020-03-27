@@ -13,6 +13,82 @@
  */
 
 
+ @mixin align-item {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ 
  body {
-    background-color: purple;
-}
+   margin: 0;
+   
+   .cajero {
+     height: 800px;
+     width: 800px;
+     margin: 0;
+     background: #C0392B;
+     padding: 5px;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr 1fr;
+     grid-template-rows: 1fr 1fr;
+     
+     
+     .c-head {
+       background: #0E6655;
+       padding: 15px;
+       grid-column: 1 / 5;
+       grid-row: 1 / 2;
+       display: grid;
+       grid-template-columns: 100px 1fr 100px;
+       grid-template-areas:
+         "btn-izq pantalla btn-der";
+       &__btn--izq {
+         background: #16A085;
+         grid-area: btn-izq;
+         justify-content: center;
+         @include align-item;
+       }
+       &__pantalla {
+         background: #A2D9CE;
+         grid-area: pantalla;
+         @include align-item;
+       }
+       &__btn--der {
+         background: #16A085;
+         grid-area: btn-der;
+         @include align-item;
+       }
+     }
+     
+     
+     .c-body {
+       background: #1A5276;
+       padding: 15px;
+       grid-column: 1 / 5;
+       grid-row: 2 / 3;
+       display: grid;
+       grid-template-columns: 2fr 1fr;
+       grid-template-rows: 1fr 1fr;
+       &__btn--numericos {
+         background: #85C1E9;
+         grid-column: 1 / 2;
+         grid-row: 1 / 3;
+         @include align-item;
+       }
+       &__tarjeta {
+         background: #5499C7;
+         grid-column: 2 / 3;
+         grid-row: 1 / 2;
+         @include align-item;
+       }
+       &__billetes {
+         background: #2874A6;
+         grid-column: 2 / 3;
+         grid-row: 2 / 3;
+         @include align-item;
+       }
+     }
+     
+     
+   }
+ }
