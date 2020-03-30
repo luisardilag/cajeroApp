@@ -11,12 +11,17 @@
  * cuando se diseña `input`s como botones).
  * 2. Forzar que todos los elementos con estilo de botón parezcan cliqueables.
  */
-
  $light: #FBFCFC;
  $red: #C0302B;
  $blue: #33A4FD;
  $gray: #BFC9CA;
  $gray--btn: #515A5A;
+ $danger: #EF5350;
+ $danger--dark: #E53935;
+ $success: #66BB6A;
+ $success--dark: #43A047;
+ $warning: #FFEE58;
+ $warning--dark: #FDD938;
  
  @mixin align-item--c {
    display: flex;
@@ -98,17 +103,64 @@
            gap: 15px;
          }
        }
-       &__tarjeta {
-         background: #5499C7;
+       &__card {
          grid-column: 2 / 3;
          grid-row: 1 / 2;
          @include align-item--c;
+         .card-cont {
+           height: 60px;
+           width: 210px;
+           border-radius: 10px;
+           &--top {
+             height: 15px;
+             background: #6DF473;
+             border-radius: 7px 7px 0 0;
+           }
+           &--middle {
+             height: 25px;
+             background: #9E9E9E;
+           }
+           &--bottom {
+             height: 20px;
+             background: #757575;
+             border-radius: 0 0 7px 7px;
+             position: relative;
+             .circle {
+               height: 35px;
+               width: 50px;
+               background: #757575;
+               border-radius: 25px 25px 0 0;
+               overflow: hidden;
+               position: absolute;
+               top: -15px;
+               left: 38%;
+             }
+           }
+         }
        }
-       &__billetes {
-         background: #2874A6;
+       &__bill {
          grid-column: 2 / 3;
          grid-row: 2 / 3;
          @include align-item--c;
+         .bill-cont {
+           height: 50px;
+           width: 200px;
+           padding: 10px;
+           background: #757575;
+           border-radius: 10px;
+           &--top {
+             height: 25px;
+             width: 200px;
+             background: #9E9E9E;
+             border-radius: 7px 7px 0 0;
+           }
+           &--bottom {
+             height: 25px;
+             width: 200px;
+             background: #616161;
+             border-radius: 0 0 7px 7px;
+           }
+         }
        }
      }
      
@@ -136,7 +188,8 @@
        outline:0;
      }
    }
-   &--num {
+   &--num,
+   &--act {
      height: 65px;
      width: 80px;
      border: 3px solid $gray;
@@ -148,6 +201,18 @@
      &:focus {
        outline:0;
      }
+   }
+   &--danger {
+     background: $danger;
+     color: $danger--dark;
+   }
+   &--success {
+     background: $success;
+     color: $success--dark;
+   }
+   &--warning {
+     background: $warning;
+     color: $warning--dark;
    }
  }
  
